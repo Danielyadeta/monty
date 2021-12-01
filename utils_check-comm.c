@@ -9,8 +9,9 @@
 int check_command(char *line)
 {
 	int i, command;
-	int (*chkrs[])(char*) = {check_push, check_pall,
-		check_pint, check_pop, check_swap, 
+
+	int (*chkrs[])(char *) = {check_push, check_pall,
+		check_pint, check_pop, check_swap,
 		check_add, check_nop, check_sub, check_div,
 		check_mul, check_mod, check_comment};
 
@@ -29,13 +30,13 @@ int check_command(char *line)
 * @line: the input buffer
 *
 * Return: 1 if found, otherwise 0
-*/		
+*/
 int check_push(char *line)
 {
 	char *str_push;
 	int i;
 
-	i = 0;	
+	i = 0;
 	str_push = "push ";
 	while (i < 5)
 	{
