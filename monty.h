@@ -56,5 +56,7 @@ int check_add(char *line);
 int check_nop(char *line);
 int op_sub(stack_t **h);
 int check_sub(char *line);
+int op_div(stack_t **h);
+int check_div(char *line);
 
 #endif /* MONTY_H */

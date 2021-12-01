@@ -66,6 +66,8 @@ int check_command(char *line)
 		command = check_nop(line);
         if (command == 0)
                 command = check_sub(line);
+	if (command == 0)
+                command = check_div(line);
 	return (command);
 }
 
@@ -195,4 +197,20 @@ int check_sub(char *line)
                 i++;
         }
         return (i == 3 ? 8 : 0);
+}
+
+int check_div(char *line)
+{
+        char *str_div;
+        int i;
+
+        i = 0;
+        str_div = "div";
+        while (i < 3)
+        {
+                if (*(line + i) != *(str_div + i))
+                        break;
+                i++;
+        }
+        return (i == 3 ? 9 : 0);
 }

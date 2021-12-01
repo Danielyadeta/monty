@@ -83,6 +83,8 @@ int main(int argc, char **argv)
 			continue;
                 else if (command == 8)
                         op_sub(&head);
+                else if (command == 9)
+                        op_div(&head);
 		lnum++;
 	}
 
