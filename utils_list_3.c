@@ -20,3 +20,21 @@ int op_mod(stack_t **h)
 
 	return (1);
 }
+
+/**
+ * free_dlistint - frees a dlistint_t list
+ * @head: pointer to the head of the list
+ *
+ * Return: Always Void
+ */
+void free_dlistint(stack_t *head)
+{
+	stack_t *current;
+
+	while (head != NULL)
+	{
+		current = head->next;
+		free(head);
+		head = current;
+	}
+}

@@ -63,4 +63,6 @@ int check_mul(char *line);
 int op_mod(stack_t **h);
 int check_mod(char *line);
 int check_comment(char *line);
+void free_dlistint(stack_t *head);
+
 #endif /* MONTY_H */

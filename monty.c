@@ -93,10 +93,9 @@ int main(int argc, char **argv)
                         continue;
 		lnum++;
 	}
-
 	fclose(fp);
 	if (line)
 		free(line);
-
+	free_dlistint(head);
 	return(EXIT_SUCCESS);
 }
