@@ -48,5 +48,8 @@ size_t print_top(const stack_t *h);
 int check_pint(char *line);
 int check_pop(char *line);
 int op_pop(stack_t **head);
+int check_swap(char *line);
+size_t dlistint_len(const stack_t *h);
+int op_swap(stack_t *h);
 
 #endif /* MONTY_H */

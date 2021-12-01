@@ -67,3 +67,35 @@ int op_pop(stack_t **head)
 	free(current);
 	return (pop_val);
 }
+
+/**
+ * dlistint_len - returns the number of elements in a linked dlistint_t list
+ * @h: pointer to a dlistint_t list
+ *
+ * Return: the number of nodes
+ */
+size_t dlistint_len(const stack_t *h)
+{
+	size_t count;
+
+	count = 0;
+	while (h != NULL)
+	{
+		h = h->next;
+		count++;
+	}
+	return (count);
+}
+
+int op_swap(stack_t *h)
+{
+	int s;
+
+	if (dlistint_len(h) < 2)
+		printerr("Less than two");
+	s = h->n;
+	h->n = h->next->n;
+	h->next->n = s;
+
+	return (1);
+}

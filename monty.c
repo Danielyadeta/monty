@@ -75,6 +75,8 @@ int main(int argc, char **argv)
 			print_top(head);
 		else if (command == 4)
 			op_pop(&head);
+		else if (command == 5)
+			op_swap(head);
 		lnum++;
 	}
 

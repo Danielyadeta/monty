@@ -56,6 +56,8 @@ int check_command(char *line)
                 command = check_pint(line);
 	if (command == 0)
 		command = check_pop(line);
+	if (command == 0)
+		command = check_swap(line);
 	return (command);
 }
 
@@ -121,4 +123,20 @@ int check_pop(char *line)
                 i++;
         }
         return (i == 3 ? 4 : 0);
+}
+
+int check_swap(char *line)
+{
+        char *str_swap;
+        int i;
+
+        i = 0;
+        str_swap = "swap";
+        while (i < 4)
+        {
+                if (*(line + i) != *(str_swap + i))
+                        break;
+                i++;
+        }
+        return (i == 4 ? 5 : 0);
 }
