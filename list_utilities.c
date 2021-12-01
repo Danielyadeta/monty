@@ -146,3 +146,13 @@ int op_div(stack_t **h)
 
         return (1);
 }
+
+int op_mul(stack_t **h)
+{
+        int a;
+
+        a = op_pop(h);
+        (*h)->n = (*h)->n * a;
+
+        return (1);
+}
