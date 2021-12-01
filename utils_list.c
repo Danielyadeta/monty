@@ -1,13 +1,13 @@
 #include "monty.h"
 
 /**
- * add_dnodeint - add a new node at the beginning of a dlistint_t list
+ * add_dlistint - add a new node at the beginning of a stack list
  * @head: double pointer to head of linked list
  * @n: value to the new node
  *
  * Return: pointer to the new node, otherwise NULL on failure
  */
-stack_t *add_dnodeint(stack_t **head, const int n)
+stack_t *add_dlistint(stack_t **head, const int n)
 {
 	stack_t *new;
 
@@ -44,12 +44,24 @@ size_t print_dlistint(const stack_t *h)
 	return (count);
 }
 
+/**
+* print_top - prints the int at top of stack
+* @h: head of the stack
+*
+* Return: 1
+*/
 size_t print_top(const stack_t *h)
 {
 	printf("%d\n", h->n);
 	return (1);
 }
 
+/**
+* op_pop - pops the stack
+* @head: head of the stack
+*
+* Return: the value of the popped node
+*/
 int op_pop(stack_t **head)
 {
 	stack_t *current;
@@ -116,9 +128,9 @@ int op_add(stack_t **h)
 */
 int op_add(stack_t **h)
 {
-        int a;
+	int a;
  
-        a = op_pop(h);
+	a = op_pop(h);
 	(*h)->n = (*h)->n + a;
 
 	return (1);
@@ -126,46 +138,46 @@ int op_add(stack_t **h)
 
 int op_sub(stack_t **h)
 {
-        int a;
+	int a;
 
-        a = op_pop(h);
-        (*h)->n = (*h)->n - a;
+	a = op_pop(h);
+	(*h)->n = (*h)->n - a;
 
-        return (1);
+	return (1);
 }
 
 int op_div(stack_t **h)
 {
-        int a;
+	int a;
 
 	a = op_pop(h);
 	if (a == 0)
 		printerr("number is 0");
 
-        (*h)->n = (*h)->n / a;
+	(*h)->n = (*h)->n / a;
 
-        return (1);
+	return (1);
 }
 
 int op_mul(stack_t **h)
 {
-        int a;
+	int a;
 
-        a = op_pop(h);
-        (*h)->n = (*h)->n * a;
+	a = op_pop(h);
+	(*h)->n = (*h)->n * a;
 
-        return (1);
+	return (1);
 }
 
 int op_mod(stack_t **h)
 {
-        int a;
+	int a;
 
-        a = op_pop(h);
-        if (a == 0)
-                printerr("number is 0");
+	a = op_pop(h);
+	if (a == 0)
+		printerr("number is 0");
 
-        (*h)->n = (*h)->n % a;
+	(*h)->n = (*h)->n % a;
 
-        return (1);
+	return (1);
 }
