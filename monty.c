@@ -89,6 +89,8 @@ int main(int argc, char **argv)
                         op_mul(&head);
                 else if (command == 11)
                         op_mod(&head);
+                else if (command == 12)
+                        continue;
 		lnum++;
 	}
 

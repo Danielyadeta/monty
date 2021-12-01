@@ -72,6 +72,8 @@ int check_command(char *line)
                 command = check_mul(line);
         if (command == 0)
                 command = check_mod(line);
+        if (command == 0)
+                command = check_comment(line);
 	return (command);
 }
 
@@ -249,4 +251,9 @@ int check_mod(char *line)
                 i++;
         }
         return (i == 3 ? 11 : 0);
+}
+
+int check_comment(char *line)
+{
+	return (*line == '#' ? 12 : 0);
 }
