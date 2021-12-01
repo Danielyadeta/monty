@@ -53,5 +53,6 @@ size_t dlistint_len(const stack_t *h);
 int op_swap(stack_t *h);
 int op_add(stack_t **h);
 int check_add(char *line);
+int check_nop(char *line);
 
 #endif /* MONTY_H */

@@ -60,6 +60,8 @@ int check_command(char *line)
 		command = check_swap(line);
 	if (command == 0)
 		command = check_add(line);
+	if (command == 0)
+		command = check_nop(line);
 	return (command);
 }
 
@@ -157,4 +159,20 @@ int check_add(char *line)
                 i++;
         }
         return (i == 3 ? 6 : 0);
+}
+
+int check_nop(char *line)
+{
+        char *str_nop;
+        int i;
+
+        i = 0;
+        str_nop = "nop";
+        while (i < 3)
+        {
+                if (*(line + i) != *(str_nop + i))
+                        break;
+                i++;
+        }
+        return (i == 3 ? 7 : 0);
 }
