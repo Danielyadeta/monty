@@ -23,7 +23,9 @@ void printerr(char *str)
 
 int iton(char c)
 {
-	if (c == '1')
+	if (c == '0')
+		return (0);
+	else if (c == '1')
 		return (1);
         else if (c == '2')
                 return (2);
@@ -62,6 +64,8 @@ int check_command(char *line)
 		command = check_add(line);
 	if (command == 0)
 		command = check_nop(line);
+        if (command == 0)
+                command = check_sub(line);
 	return (command);
 }
 
@@ -175,4 +179,20 @@ int check_nop(char *line)
                 i++;
         }
         return (i == 3 ? 7 : 0);
+}
+
+int check_sub(char *line)
+{
+        char *str_sub;
+        int i;
+
+        i = 0;
+        str_sub = "sub";
+        while (i < 3)
+        {
+                if (*(line + i) != *(str_sub + i))
+                        break;
+                i++;
+        }
+        return (i == 3 ? 8 : 0);
 }

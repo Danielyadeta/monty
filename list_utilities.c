@@ -99,7 +99,7 @@ int op_swap(stack_t *h)
 
 	return (1);
 }
-
+/*
 int op_add(stack_t **h)
 {
 	int a;
@@ -112,4 +112,24 @@ int op_add(stack_t **h)
 
 	add_dnodeint(h, c);
 	return (1);
+}
+*/
+int op_add(stack_t **h)
+{
+        int a;
+ 
+        a = op_pop(h);
+	(*h)->n = (*h)->n + a;
+
+	return (1);
+}
+
+int op_sub(stack_t **h)
+{
+        int a;
+
+        a = op_pop(h);
+        (*h)->n = (*h)->n - a;
+
+        return (1);
 }

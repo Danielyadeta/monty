@@ -81,6 +81,8 @@ int main(int argc, char **argv)
 			op_add(&head);
 		else if (command == 7)
 			continue;
+                else if (command == 8)
+                        op_sub(&head);
 		lnum++;
 	}
 
