@@ -12,9 +12,9 @@ stack_t *add_dnodeint(stack_t **head, const int n)
 	stack_t *new;
 
 	new = malloc(sizeof(stack_t));
-/*	if (head == NULL || new == NULL)
+	if (head == NULL || new == NULL)
 		return (NULL);
-*/
+
 	new->prev = NULL;
 	new->next = *head;
 	new->n = n;
@@ -48,4 +48,22 @@ size_t print_top(const stack_t *h)
 {
 	printf("%d\n", h->n);
 	return (1);
+}
+
+int op_pop(stack_t **head)
+{
+	stack_t *current;
+	int pop_val;
+
+	if (head == NULL || *head == NULL)
+		printerr("Empty stack");
+	current = *head;
+	pop_val = current->n;
+	*head = current->next;
+	if (current->next != NULL)
+	{
+		current->next->prev = NULL;
+	}
+	free(current);
+	return (pop_val);
 }

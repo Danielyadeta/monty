@@ -73,7 +73,8 @@ int main(int argc, char **argv)
 			print_dlistint(head);
 		else if (command == 3)
 			print_top(head);
-
+		else if (command == 4)
+			op_pop(&head);
 		lnum++;
 	}
 

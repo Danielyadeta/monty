@@ -54,6 +54,8 @@ int check_command(char *line)
 		command = check_pall(line);
         if (command == 0)
                 command = check_pint(line);
+	if (command == 0)
+		command = check_pop(line);
 	return (command);
 }
 
@@ -103,4 +105,20 @@ int check_pint(char *line)
                 i++;
         }
         return (i == 4 ? 3 : 0);
+}
+
+int check_pop(char *line)
+{
+        char *str_pop;
+        int i;
+
+        i = 0;
+        str_pop = "pop";
+        while (i < 3)
+        {
+                if (*(line + i) != *(str_pop + i))
+                        break;
+                i++;
+        }
+        return (i == 3 ? 4 : 0);
 }

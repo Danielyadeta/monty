@@ -46,5 +46,7 @@ int check_push(char *line);
 int check_pall(char *line);
 size_t print_top(const stack_t *h);
 int check_pint(char *line);
+int check_pop(char *line);
+int op_pop(stack_t **head);
 
 #endif /* MONTY_H */
