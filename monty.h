@@ -51,5 +51,7 @@ int op_pop(stack_t **head);
 int check_swap(char *line);
 size_t dlistint_len(const stack_t *h);
 int op_swap(stack_t *h);
+int op_add(stack_t **h);
+int check_add(char *line);
 
 #endif /* MONTY_H */

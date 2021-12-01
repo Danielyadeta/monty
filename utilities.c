@@ -58,6 +58,8 @@ int check_command(char *line)
 		command = check_pop(line);
 	if (command == 0)
 		command = check_swap(line);
+	if (command == 0)
+		command = check_add(line);
 	return (command);
 }
 
@@ -139,4 +141,20 @@ int check_swap(char *line)
                 i++;
         }
         return (i == 4 ? 5 : 0);
+}
+
+int check_add(char *line)
+{
+        char *str_add;
+        int i;
+
+        i = 0;
+        str_add = "add";
+        while (i < 3)
+        {
+                if (*(line + i) != *(str_add + i))
+                        break;
+                i++;
+        }
+        return (i == 3 ? 6 : 0);
 }
