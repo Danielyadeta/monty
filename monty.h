@@ -60,5 +60,7 @@ int op_div(stack_t **h);
 int check_div(char *line);
 int op_mul(stack_t **h);
 int check_mul(char *line);
+int op_mod(stack_t **h);
+int check_mod(char *line);
 
 #endif /* MONTY_H */

@@ -70,6 +70,8 @@ int check_command(char *line)
                 command = check_div(line);
         if (command == 0)
                 command = check_mul(line);
+        if (command == 0)
+                command = check_mod(line);
 	return (command);
 }
 
@@ -231,4 +233,20 @@ int check_mul(char *line)
                 i++;
         }
         return (i == 3 ? 10 : 0);
+}
+
+int check_mod(char *line)
+{
+        char *str_mod;
+        int i;
+
+        i = 0;
+        str_mod = "mod";
+        while (i < 3)
+        {
+                if (*(line + i) != *(str_mod + i))
+                        break;
+                i++;
+        }
+        return (i == 3 ? 11 : 0);
 }
