@@ -44,5 +44,7 @@ int iton(char c);
 int check_command(char *line);
 int check_push(char *line);
 int check_pall(char *line);
+size_t print_top(const stack_t *h);
+int check_pint(char *line);
 
 #endif /* MONTY_H */

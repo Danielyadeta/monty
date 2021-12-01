@@ -43,3 +43,9 @@ size_t print_dlistint(const stack_t *h)
 	}
 	return (count);
 }
+
+size_t print_top(const stack_t *h)
+{
+	printf("%d\n", h->n);
+	return (1);
+}

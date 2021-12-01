@@ -71,6 +71,9 @@ int main(int argc, char **argv)
 		}
 		else if (command == 2)
 			print_dlistint(head);
+		else if (command == 3)
+			print_top(head);
+
 		lnum++;
 	}
 
