@@ -34,6 +34,8 @@ size_t print_dlistint(const stack_t *h)
 {
 	size_t count;
 
+	if (h == NULL)
+		return (0);
 	count = 0;
 	while (h != NULL)
 	{
@@ -50,8 +52,10 @@ size_t print_dlistint(const stack_t *h)
 *
 * Return: 1
 */
-size_t print_top(const stack_t *h)
+size_t print_top(const stack_t *h, int lnum)
 {
+	if (h == NULL)
+		printerr(2, lnum);
 	printf("%d\n", h->n);
 	return (1);
 }
@@ -68,7 +72,7 @@ int op_pop(stack_t **head)
 	int pop_val;
 
 	if (head == NULL || *head == NULL)
-		printerr("Empty stack");
+		printerr(4, 0);
 	current = *head;
 	pop_val = current->n;
 	*head = current->next;

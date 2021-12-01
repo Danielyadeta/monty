@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
+#include <unistd.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -39,12 +40,12 @@ typedef struct instruction_s
 size_t print_dlistint(const stack_t *h);
 stack_t *add_dnodeint(stack_t **head, const int n);
 int powrd(int n);
-void printerr(char *str);
+void printerr(int errno, int lnum);
 int iton(char c);
-int check_command(char *line);
+int check_command(char *line, int lnum);
 int check_push(char *line);
 int check_pall(char *line);
-size_t print_top(const stack_t *h);
+size_t print_top(const stack_t *h, int lnum);
 int check_pint(char *line);
 int check_pop(char *line);
 int op_pop(stack_t **head);
@@ -64,5 +65,6 @@ int op_mod(stack_t **h);
 int check_mod(char *line);
 int check_comment(char *line);
 void free_dlistint(stack_t *head);
+int interpret_command(int command, char *line, stack_t **head, int lnum);
 
 #endif /* MONTY_H */

@@ -6,7 +6,7 @@
 *
 * Return: non-zero if found, otherwise 0
 */
-int check_command(char *line)
+int check_command(char *line, int lnum)
 {
 	int i, command;
 
@@ -22,6 +22,8 @@ int check_command(char *line)
 		command = chkrs[i](line);
 		i++;
 	}
+	if (command == 0)
+		printerr(3, lnum);
 	return (command);
 }
 

@@ -14,7 +14,7 @@ int op_mod(stack_t **h)
 
 	a = op_pop(h);
 	if (a == 0)
-		printerr("number is 0");
+		printerr(4, 0);
 
 	(*h)->n = (*h)->n % a;
 
