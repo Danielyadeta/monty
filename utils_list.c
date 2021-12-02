@@ -64,6 +64,7 @@ size_t print_top(const stack_t *h, int lnum)
 /**
 * op_pop - pops the stack
 * @head: head of the stack
+* @lnum: line number
 *
 * Return: the value of the popped node
 */

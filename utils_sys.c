@@ -18,6 +18,12 @@ void printerr(int errnum, int lnum, char *str)
 	char *errsix = "Error: malloc failed";
 	char *errseven = ": can't pop an empty stack";
 	char *erreight = ": can't swap, stack too short";
+	char *errnine = ": can't add, stack too short";
+	char *errten = ": can't sub, stack too short";
+	char *erreleven = ": can't div, stack too short";
+	char *errtwelve = ": division by zero";
+	char *errthirteen = ": can't mul, stack too short";
+	char *errfourteen = ": can't mod, stack too short";
 
 	if (errnum == 1)
 		dprintf(STDERR_FILENO, "L%d%s\n", lnum, errone);
@@ -35,6 +41,18 @@ void printerr(int errnum, int lnum, char *str)
 		dprintf(STDERR_FILENO, "L%d%s\n", lnum, errseven);
 	else if (errnum == 8)
 		dprintf(STDERR_FILENO, "L%d%s\n", lnum, erreight);
+	else if (errnum == 9)
+		dprintf(STDERR_FILENO, "L%d%s\n", lnum, errnine);
+	else if (errnum == 10)
+		dprintf(STDERR_FILENO, "L%d%s\n", lnum, errten);
+	else if (errnum == 11)
+		dprintf(STDERR_FILENO, "L%d%s\n", lnum, erreleven);
+	else if (errnum == 12)
+		dprintf(STDERR_FILENO, "L%d%s\n", lnum, errtwelve);
+	else if (errnum == 13)
+		dprintf(STDERR_FILENO, "L%d%s\n", lnum, errthirteen);
+	else if (errnum == 14)
+		dprintf(STDERR_FILENO, "L%d%s\n", lnum, errfourteen);
 	free(str);
 	exit(EXIT_FAILURE);
 }

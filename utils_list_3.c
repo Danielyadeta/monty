@@ -5,6 +5,7 @@
 *	of the second top element of the stack\
 *	by the top element of the stack
 * @h: head of the stack
+* @lnum: line number
 *
 * Return: 1
 */
@@ -12,9 +13,11 @@ int op_mod(stack_t **h, int lnum)
 {
 	int a;
 
+	if (dlistint_len(*h) < 2)
+		printerr(14, lnum, NULL);
 	a = op_pop(h, lnum);
 	if (a == 0)
-		printerr(4, 0, NULL);
+		printerr(12, lnum, NULL);
 
 	(*h)->n = (*h)->n % a;
 
