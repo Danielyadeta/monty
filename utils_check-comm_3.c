@@ -83,21 +83,21 @@ int interpret_command(int command, char *line, stack_t **head, int lnum)
 	else if (command == 3)
 		print_top(*head, lnum);
 	else if (command == 4)
-		op_pop(head);
+		op_pop(head, lnum);
 	else if (command == 5)
 		op_swap(*head);
 	else if (command == 6)
-		op_add(head);
+		op_add(head, lnum);
 	else if (command == 7)
 		return (98);
 	else if (command == 8)
-		op_sub(head);
+		op_sub(head, lnum);
 	else if (command == 9)
-		op_div(head);
+		op_div(head, lnum);
 	else if (command == 10)
-		op_mul(head);
+		op_mul(head, lnum);
 	else if (command == 11)
-		op_mod(head);
+		op_mod(head, lnum);
 	else if (command == 12)
 		return (98);
 

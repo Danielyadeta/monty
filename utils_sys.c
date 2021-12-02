@@ -16,6 +16,7 @@ void printerr(int errnum, int lnum, char *str)
 	char *errfour = "USAGE: monty file";
 	char *errfive = "Error: Can't open file ";
 	char *errsix = "Error: malloc failed";
+	char *errseven = ": can't pop an empty stack";
 
 	if (errnum == 1)
 		dprintf(STDERR_FILENO, "L%d%s\n", lnum, errone);
@@ -29,6 +30,8 @@ void printerr(int errnum, int lnum, char *str)
 		dprintf(STDERR_FILENO, "%s%s\n", errfive, str);
 	else if (errnum == 6)
 		dprintf(STDERR_FILENO, "%s\n", errsix);
+	else if (errnum == 7)
+		dprintf(STDERR_FILENO, "L%d%s\n", lnum, errseven);
 	free(str);
 	exit(EXIT_FAILURE);
 }

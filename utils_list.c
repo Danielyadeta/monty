@@ -67,13 +67,13 @@ size_t print_top(const stack_t *h, int lnum)
 *
 * Return: the value of the popped node
 */
-int op_pop(stack_t **head)
+int op_pop(stack_t **head, int lnum)
 {
 	stack_t *current;
 	int pop_val;
 
 	if (head == NULL || *head == NULL)
-		printerr(4, 0, NULL);
+		printerr(7, lnum, NULL);
 	current = *head;
 	pop_val = current->n;
 	*head = current->next;

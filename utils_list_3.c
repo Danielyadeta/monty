@@ -8,11 +8,11 @@
 *
 * Return: 1
 */
-int op_mod(stack_t **h)
+int op_mod(stack_t **h, int lnum)
 {
 	int a;
 
-	a = op_pop(h);
+	a = op_pop(h, lnum);
 	if (a == 0)
 		printerr(4, 0, NULL);
 
