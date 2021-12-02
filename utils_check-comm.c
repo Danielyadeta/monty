@@ -24,7 +24,7 @@ int check_command(char *line, int lnum)
 		i++;
 	}
 	if (command == 0)
-		printerr(3, lnum, get_unknown_op(line));
+		printerr(3, lnum, get_unknown_op(line), line);
 	return (command);
 }
 
