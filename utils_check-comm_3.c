@@ -85,7 +85,7 @@ int interpret_command(int command, char *line, stack_t **head, int lnum)
 	else if (command == 4)
 		op_pop(head, lnum);
 	else if (command == 5)
-		op_swap(*head);
+		op_swap(*head, lnum);
 	else if (command == 6)
 		op_add(head, lnum);
 	else if (command == 7)

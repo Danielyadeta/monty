@@ -6,12 +6,12 @@
 *
 * Return: 1
 */
-int op_swap(stack_t *h)
+int op_swap(stack_t *h, int lnum)
 {
 	int s;
 
 	if (dlistint_len(h) < 2)
-		printerr(4, 0, NULL);
+		printerr(8, lnum, NULL);
 	s = h->n;
 	h->n = h->next->n;
 	h->next->n = s;

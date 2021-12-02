@@ -17,6 +17,7 @@ void printerr(int errnum, int lnum, char *str)
 	char *errfive = "Error: Can't open file ";
 	char *errsix = "Error: malloc failed";
 	char *errseven = ": can't pop an empty stack";
+	char *erreight = ": can't swap, stack too short";
 
 	if (errnum == 1)
 		dprintf(STDERR_FILENO, "L%d%s\n", lnum, errone);
@@ -32,6 +33,8 @@ void printerr(int errnum, int lnum, char *str)
 		dprintf(STDERR_FILENO, "%s\n", errsix);
 	else if (errnum == 7)
 		dprintf(STDERR_FILENO, "L%d%s\n", lnum, errseven);
+	else if (errnum == 8)
+		dprintf(STDERR_FILENO, "L%d%s\n", lnum, erreight);
 	free(str);
 	exit(EXIT_FAILURE);
 }
