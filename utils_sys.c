@@ -24,6 +24,8 @@ void printerr(int errnum, int lnum, char *str)
 	char *errtwelve = ": division by zero";
 	char *errthirteen = ": can't mul, stack too short";
 	char *errfourteen = ": can't mod, stack too short";
+	char *errfifteen = ": can't pchar, value out of range";
+	char *errsixteen = ": can't pchar, stack empty";
 
 	if (errnum == 1)
 		dprintf(STDERR_FILENO, "L%d%s\n", lnum, errone);
@@ -53,6 +55,10 @@ void printerr(int errnum, int lnum, char *str)
 		dprintf(STDERR_FILENO, "L%d%s\n", lnum, errthirteen);
 	else if (errnum == 14)
 		dprintf(STDERR_FILENO, "L%d%s\n", lnum, errfourteen);
+	else if (errnum == 15)
+		dprintf(STDERR_FILENO, "L%d%s\n", lnum, errfifteen);
+	else if (errnum == 16)
+		dprintf(STDERR_FILENO, "L%d%s\n", lnum, errsixteen);
 	free(str);
 	exit(EXIT_FAILURE);
 }

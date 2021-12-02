@@ -41,3 +41,21 @@ void free_dlistint(stack_t *head)
 		head = current;
 	}
 }
+
+/**
+* op_pchar - prints the char at the top of the stack
+* @h: pointer to head of stack
+* @lnum: line number
+*
+* Return: 1
+*/
+int op_pchar(stack_t **h, int lnum)
+{
+	if (h == NULL || *h == NULL)
+		printerr(16, lnum, NULL);
+	if ((*h)->n < 0 || (*h)->n > 127)
+		printerr(15, lnum, NULL);
+	printf("%c\n", (*h)->n);
+
+	return (1);
+}
