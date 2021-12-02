@@ -74,7 +74,7 @@ int op_pstr(stack_t **h)
 	if (h == NULL || *h == NULL)
 		printf("\n");
 	while (current->n != '0' && current != NULL &&
-		(current->n > 0 && current->n < 128))
+		(current->n > 31 && current->n < 127))
 	{
 		printf("%c", current->n);
 		current = current->next;
