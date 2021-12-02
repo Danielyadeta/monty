@@ -76,36 +76,8 @@ int check_comment(char *line)
 */
 int interpret_command(int command, char *line, stack_t **head, int lnum)
 {
-	int end, i, sum;
-
-	end = 0;
-	i = 0;
 	if (command == 1)
-	{
-		while (*(line + 5 + i) != ' ' &&
-			*(line + 5 + i) != '\n' &&
-			*(line + 5 + i) != '\0')
-		{
-			end++;
-			i++;
-		}
-		if (end == 0)
-			printerr(1, lnum, NULL);
-		i = 0;
-		sum = 0;
-		while (end > 0)
-		{
-			if (*(line + 5 + i) < 48 || *(line + 5 + i) > 57)
-				printerr(1, lnum, NULL);
-			else
-			{
-				sum = sum + ((iton(*(line + 5 + i))) * (powrd(end - 1)));
-			}
-			end--;
-			i++;
-		}
-		add_dnodeint(head, sum);
-	}
+		add_dnodeint(head, get_push_num(line));
 	else if (command == 2)
 		print_dlistint(*head);
 	else if (command == 3)
@@ -142,9 +114,11 @@ char *get_unknown_op(char *line)
 {
 	int i;
 	char *str = malloc(sizeof(char) * 50);
-	
+
 	i = 0;
-	while (*(line + i) != ' ' && *(line + i) != '\n' && *(line + i) != '\0' && *(line + i) != '\r')
+	while (*(line + i) != ' ' &&
+		*(line + i) != '\n' && *(line + i) != '\0' &&
+		*(line + i) != '\r')
 	{
 		*(str + i) = *(line + i);
 		i++;
@@ -152,4 +126,41 @@ char *get_unknown_op(char *line)
 	*(str + i) = '\0';
 
 	return (str);
+}
+
+/**
+* get_push_num - gets the number to push
+* @line: the input buffer
+*
+* Return: the number
+*/
+int get_push_num(char *line)
+{
+	int end, i, sum;
+
+	end = 0;
+	i = 0;
+	while (*(line + 5 + i) != ' ' &&
+		*(line + 5 + i) != '\n' &&
+		*(line + 5 + i) != '\0')
+	{
+		end++;
+		i++;
+	}
+	if (end == 0)
+		printerr(1, lnum, NULL);
+	i = 0;
+	sum = 0;
+	while (end > 0)
+	{
+		if (*(line + 5 + i) < 48 || *(line + 5 + i) > 57)
+			printerr(1, lnum, NULL);
+		else
+		{
+			sum = sum + ((iton(*(line + 5 + i))) * (powrd(end - 1)));
+		}
+		end--;
+		i++;
+	}
+	return (sum);
 }
