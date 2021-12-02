@@ -70,5 +70,6 @@ char *get_unknown_op(char *line);
 int get_push_num(char *line, int lnum);
 int op_pchar(stack_t **h, int lnum);
 int check_pchar(char *line);
+int check_empty(char *line);
 
 #endif /* MONTY_H */

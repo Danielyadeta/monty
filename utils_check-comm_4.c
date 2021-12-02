@@ -26,3 +26,25 @@ int check_pchar(char *line)
 		return (13);
 	return (0);
 }
+
+/**
+* check_empty - checks if the command is push
+* @line: the input buffer
+*
+* Return: 1 if found, otherwise 0
+*/
+int check_empty(char *line)
+{
+	int i;
+
+	i = 0;
+	while (*(line + i) != '\n' && *(line + i) != '\0')
+	{
+		if (*(line + i) != ' ')
+			break;
+		i++;
+	}
+	if (*(line + i) == '\n' || *(line + i) == '\0')
+		return (14);
+	return (0);
+}

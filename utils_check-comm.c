@@ -14,11 +14,12 @@ int check_command(char *line, int lnum)
 	int (*chkrs[])(char *) = {check_push, check_pall,
 		check_pint, check_pop, check_swap,
 		check_add, check_nop, check_sub, check_div,
-		check_mul, check_mod, check_comment, check_pchar};
+		check_mul, check_mod, check_comment, check_pchar,
+		check_empty};
 
 	i = 0;
 	command = 0;
-	while (command == 0 && i < 13)
+	while (command == 0 && i < 14)
 	{
 		command = chkrs[i](line);
 		i++;
@@ -47,7 +48,12 @@ int check_push(char *line)
 			break;
 		i++;
 	}
-	return (i == 4 ? 1 : 0);
+	if (i == 4 && (*(line + i) == ' ' ||
+		*(line + i) == '\n' ||
+		*(line + i) == '\0' ||
+		*(line + i) == '\r'))
+		return (1);
+	return (0);
 }
 
 /**
