@@ -4,7 +4,6 @@
 * main - starting point for monty read
 * @argc: argument count
 * @argv: argument vector
-* @env: environment
 *
 * Return: EXIT_SUCCESS on success, otherwise EXIT_FAILIURE
 */
@@ -44,5 +43,5 @@ int main(int argc, char **argv)
 	if (line)
 		free(line);
 	free_dlistint(head);
-	return(EXIT_SUCCESS);
+	return (EXIT_SUCCESS);
 }

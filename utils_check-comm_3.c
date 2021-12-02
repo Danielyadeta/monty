@@ -19,7 +19,7 @@ int check_mul(char *line)
 			break;
 		i++;
 	}
-	if ( i == 3 && (*(line + i) == ' ' ||
+	if (i == 3 && (*(line + i) == ' ' ||
 		*(line + i) == '\n' ||
 		*(line + i) == '\0' ||
 		*(line + i) == '\r'))
@@ -46,7 +46,7 @@ int check_mod(char *line)
 			break;
 		i++;
 	}
-	if ( i == 3 && (*(line + i) == ' ' ||
+	if (i == 3 && (*(line + i) == ' ' ||
 		*(line + i) == '\n' ||
 		*(line + i) == '\0' ||
 		*(line + i) == '\r'))
@@ -65,6 +65,15 @@ int check_comment(char *line)
 	return (*line == '#' ? 12 : 0);
 }
 
+/**
+* interpret_command - interprets the op code
+* @command: the opcode
+* @line: the input buffer
+* @head: head of stack
+* @lnum: the line number
+*
+* Return: 0 on failiure
+*/
 int interpret_command(int command, char *line, stack_t **head, int lnum)
 {
 	int end, i, sum;
@@ -108,7 +117,7 @@ int interpret_command(int command, char *line, stack_t **head, int lnum)
 	else if (command == 6)
 		op_add(head);
 	else if (command == 7)
-		return (98);	
+		return (98);
 	else if (command == 8)
 		op_sub(head);
 	else if (command == 9)
@@ -121,4 +130,26 @@ int interpret_command(int command, char *line, stack_t **head, int lnum)
 		return (98);
 
 	return (0);
+}
+
+/**
+* get_unknown_op - gets what the unknown op is
+* @line: the input buffer
+*
+* Return: the unknown op
+*/
+char *get_unknown_op(char *line)
+{
+	int i;
+	char *str = malloc(sizeof(char) * 50);
+	
+	i = 0;
+	while (*(line + i) != ' ' && *(line + i) != '\n' && *(line + i) != '\0' && *(line + i) != '\r')
+	{
+		*(str + i) = *(line + i);
+		i++;
+	}
+	*(str + i) = '\0';
+
+	return (str);
 }

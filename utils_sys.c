@@ -2,7 +2,9 @@
 
 /**
 * printerr - prints error and exits
-* @str: error message
+* @errnum: the error number
+* @lnum: the line number
+* @str: the unknown op
 *
 * Return: Always Void
 */

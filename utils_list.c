@@ -49,6 +49,7 @@ size_t print_dlistint(const stack_t *h)
 /**
 * print_top - prints the int at top of stack
 * @h: head of the stack
+* @lnum: the line number
 *
 * Return: 1
 */

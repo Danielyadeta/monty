@@ -19,7 +19,7 @@ int check_swap(char *line)
 			break;
 		i++;
 	}
-	if ( i == 4 && (*(line + i) == ' ' ||
+	if (i == 4 && (*(line + i) == ' ' ||
 		*(line + i) == '\n' ||
 		*(line + i) == '\0' ||
 		*(line + i) == '\r'))
@@ -46,7 +46,7 @@ int check_add(char *line)
 			break;
 		i++;
 	}
-	if ( i == 3 && (*(line + i) == ' ' ||
+	if (i == 3 && (*(line + i) == ' ' ||
 		*(line + i) == '\n' ||
 		*(line + i) == '\0' ||
 		*(line + i) == '\r'))
@@ -73,7 +73,7 @@ int check_nop(char *line)
 			break;
 		i++;
 	}
-	if ( i == 3 && (*(line + i) == ' ' ||
+	if (i == 3 && (*(line + i) == ' ' ||
 		*(line + i) == '\n' ||
 		*(line + i) == '\0' ||
 		*(line + i) == '\r'))
@@ -100,12 +100,12 @@ int check_sub(char *line)
 			break;
 		i++;
 	}
-	if ( i == 3 && (*(line + i) == ' ' ||
+	if (i == 3 && (*(line + i) == ' ' ||
 		*(line + i) == '\n' ||
 		*(line + i) == '\0' ||
 		*(line + i) == '\r'))
 		return (8);
-	return (0); 
+	return (0);
 }
 
 /**
@@ -127,7 +127,7 @@ int check_div(char *line)
 			break;
 		i++;
 	}
-	if ( i == 3 && (*(line + i) == ' ' ||
+	if (i == 3 && (*(line + i) == ' ' ||
 		*(line + i) == '\n' ||
 		*(line + i) == '\0' ||
 		*(line + i) == '\r'))

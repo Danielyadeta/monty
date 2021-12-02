@@ -3,6 +3,7 @@
 /**
 * check_command - identifies what the command is
 * @line: the input buffer
+* @lnum: the line number
 *
 * Return: non-zero if found, otherwise 0
 */
@@ -68,34 +69,12 @@ int check_pall(char *line)
 			break;
 		i++;
 	}
-	if ( i == 4 && (*(line + i) == ' ' || 
+	if (i == 4 && (*(line + i) == ' ' ||
 		*(line + i) == '\n' ||
 		*(line + i) == '\0' ||
 		*(line + i) == '\r'))
 		return (2);
 	return (0);
-}
-
-/**
-* get_unknown_op - gets what the unknown op is
-* @line: the input buffer
-*
-* Return: the unknown op
-*/
-char *get_unknown_op(char *line)
-{
-	int i;
-	char *str = malloc(sizeof(char) * 50);
-	
-	i = 0;
-	while (*(line + i) != ' ' && *(line + i) != '\n' && *(line + i) != '\0' && *(line + i) != '\r')
-	{
-		*(str + i) = *(line + i);
-		i++;
-	}
-	*(str + i) = '\0';
-
-	return (str);
 }
 
 /**
@@ -117,7 +96,7 @@ int check_pint(char *line)
 			break;
 		i++;
 	}
-	if ( i == 4 && (*(line + i) == ' ' ||
+	if (i == 4 && (*(line + i) == ' ' ||
 		*(line + i) == '\n' ||
 		*(line + i) == '\0' ||
 		*(line + i) == '\r'))
@@ -144,7 +123,7 @@ int check_pop(char *line)
 			break;
 		i++;
 	}
-	if ( i == 3 && (*(line + i) == ' ' ||
+	if (i == 3 && (*(line + i) == ' ' ||
 		*(line + i) == '\n' ||
 		*(line + i) == '\0' ||
 		*(line + i) == '\r'))
