@@ -6,11 +6,11 @@
 *
 * Return: Always Void
 */
-void printerr(int errnum, int lnum)
+void printerr(int errnum, int lnum, char *str)
 {
 	char *errone = ": usage: push integer";
 	char *errtwo = ": can't pint, stack empty";
-	char *errthree = ": unknown instruction <opcode>";
+	char *errthree = ": unknown instruction ";
 	char *errfour = "USAGE: monty file";
 	char *errfive = "Error: Can't open file <file>";
 
@@ -19,10 +19,11 @@ void printerr(int errnum, int lnum)
 	else if (errnum == 2)
 		dprintf(STDERR_FILENO, "L%d%s\n", lnum, errtwo);
 	else if (errnum == 3)
-		dprintf(STDERR_FILENO, "L%d%s\n", lnum, errthree);
+		dprintf(STDERR_FILENO, "L%d%s%s\n", lnum, errthree, str);
 	else if (errnum == 4)
 		dprintf(STDERR_FILENO, "%s\n", errfour);
 	else if (errnum == 5)
-		dprintf(STDERR_FILENO, "%s\n", errfive);	
+		dprintf(STDERR_FILENO, "%s\n", errfive);
+	free(str);
 	exit(EXIT_FAILURE);
 }

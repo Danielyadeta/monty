@@ -19,7 +19,12 @@ int check_mul(char *line)
 			break;
 		i++;
 	}
-	return (i == 3 ? 10 : 0);
+	if ( i == 3 && (*(line + i) == ' ' ||
+		*(line + i) == '\n' ||
+		*(line + i) == '\0' ||
+		*(line + i) == '\r'))
+		return (10);
+	return (0);
 }
 
 /**
@@ -41,7 +46,12 @@ int check_mod(char *line)
 			break;
 		i++;
 	}
-	return (i == 3 ? 11 : 0);
+	if ( i == 3 && (*(line + i) == ' ' ||
+		*(line + i) == '\n' ||
+		*(line + i) == '\0' ||
+		*(line + i) == '\r'))
+		return (11);
+	return (0);
 }
 
 /**
@@ -71,13 +81,13 @@ int interpret_command(int command, char *line, stack_t **head, int lnum)
 			i++;
 		}
 		if (end == 0)
-			printerr(1, lnum);
+			printerr(1, lnum, NULL);
 		i = 0;
 		sum = 0;
 		while (end > 0)
 		{
 			if (*(line + 5 + i) < 48 || *(line + 5 + i) > 57)
-				printerr(1, lnum);
+				printerr(1, lnum, NULL);
 			else
 			{
 				sum = sum + ((iton(*(line + 5 + i))) * (powrd(end - 1)));

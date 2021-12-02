@@ -55,7 +55,7 @@ size_t print_dlistint(const stack_t *h)
 size_t print_top(const stack_t *h, int lnum)
 {
 	if (h == NULL)
-		printerr(2, lnum);
+		printerr(2, lnum, NULL);
 	printf("%d\n", h->n);
 	return (1);
 }
@@ -72,7 +72,7 @@ int op_pop(stack_t **head)
 	int pop_val;
 
 	if (head == NULL || *head == NULL)
-		printerr(4, 0);
+		printerr(4, 0, NULL);
 	current = *head;
 	pop_val = current->n;
 	*head = current->next;

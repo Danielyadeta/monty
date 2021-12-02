@@ -19,7 +19,12 @@ int check_swap(char *line)
 			break;
 		i++;
 	}
-	return (i == 4 ? 5 : 0);
+	if ( i == 4 && (*(line + i) == ' ' ||
+		*(line + i) == '\n' ||
+		*(line + i) == '\0' ||
+		*(line + i) == '\r'))
+		return (5);
+	return (0);
 }
 
 /**
@@ -41,7 +46,12 @@ int check_add(char *line)
 			break;
 		i++;
 	}
-	return (i == 3 ? 6 : 0);
+	if ( i == 4 && (*(line + i) == ' ' ||
+		*(line + i) == '\n' ||
+		*(line + i) == '\0' ||
+		*(line + i) == '\r'))
+		return (6);
+	return (0);
 }
 
 /**
@@ -63,7 +73,12 @@ int check_nop(char *line)
 			break;
 		i++;
 	}
-	return (i == 3 ? 7 : 0);
+	if ( i == 3 && (*(line + i) == ' ' ||
+		*(line + i) == '\n' ||
+		*(line + i) == '\0' ||
+		*(line + i) == '\r'))
+		return (7);
+	return (0);
 }
 
 /**
@@ -85,7 +100,12 @@ int check_sub(char *line)
 			break;
 		i++;
 	}
-	return (i == 3 ? 8 : 0);
+	if ( i == 3 && (*(line + i) == ' ' ||
+		*(line + i) == '\n' ||
+		*(line + i) == '\0' ||
+		*(line + i) == '\r'))
+		return (8);
+	return (0); 
 }
 
 /**
@@ -107,5 +127,10 @@ int check_div(char *line)
 			break;
 		i++;
 	}
-	return (i == 3 ? 9 : 0);
+	if ( i == 3 && (*(line + i) == ' ' ||
+		*(line + i) == '\n' ||
+		*(line + i) == '\0' ||
+		*(line + i) == '\r'))
+		return (9);
+	return (0);
 }

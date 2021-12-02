@@ -11,7 +11,7 @@ int op_swap(stack_t *h)
 	int s;
 
 	if (dlistint_len(h) < 2)
-		printerr(4, 0);
+		printerr(4, 0, NULL);
 	s = h->n;
 	h->n = h->next->n;
 	h->next->n = s;
@@ -63,7 +63,7 @@ int op_div(stack_t **h)
 
 	a = op_pop(h);
 	if (a == 0)
-		printerr(4, 0);
+		printerr(4, 0, NULL);
 
 	(*h)->n = (*h)->n / a;
 

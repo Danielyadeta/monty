@@ -40,7 +40,7 @@ typedef struct instruction_s
 size_t print_dlistint(const stack_t *h);
 stack_t *add_dnodeint(stack_t **head, const int n);
 int powrd(int n);
-void printerr(int errno, int lnum);
+void printerr(int errno, int lnum, char *str);
 int iton(char c);
 int check_command(char *line, int lnum);
 int check_push(char *line);
@@ -66,5 +66,6 @@ int check_mod(char *line);
 int check_comment(char *line);
 void free_dlistint(stack_t *head);
 int interpret_command(int command, char *line, stack_t **head, int lnum);
+char *get_unknown_op(char *line);
 
 #endif /* MONTY_H */

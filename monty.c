@@ -17,14 +17,14 @@ int main(int argc, char **argv)
 	int lnum, command, start, ret;
 
 	if (argc != 2)
-		printerr(4, 0);
+		printerr(4, 0, NULL);
 	head = NULL;
 	lnum = 1;
 	line = NULL;
 	len = 0;
 	fp = fopen(argv[1], "r");
 	if (fp == NULL)
-		printerr(5, 0);
+		printerr(5, 0, NULL);
 	while (getline(&line, &len, fp) != -1)
 	{
 		start = 0;

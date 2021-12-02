@@ -23,7 +23,7 @@ int check_command(char *line, int lnum)
 		i++;
 	}
 	if (command == 0)
-		printerr(3, lnum);
+		printerr(3, lnum, get_unknown_op(line));
 	return (command);
 }
 
@@ -68,7 +68,34 @@ int check_pall(char *line)
 			break;
 		i++;
 	}
-	return (i == 4 ? 2 : 0);
+	if ( i == 4 && (*(line + i) == ' ' || 
+		*(line + i) == '\n' ||
+		*(line + i) == '\0' ||
+		*(line + i) == '\r'))
+		return (2);
+	return (0);
+}
+
+/**
+* get_unknown_op - gets what the unknown op is
+* @line: the input buffer
+*
+* Return: the unknown op
+*/
+char *get_unknown_op(char *line)
+{
+	int i;
+	char *str = malloc(sizeof(char) * 50);
+	
+	i = 0;
+	while (*(line + i) != ' ' && *(line + i) != '\n' && *(line + i) != '\0' && *(line + i) != '\r')
+	{
+		*(str + i) = *(line + i);
+		i++;
+	}
+	*(str + i) = '\0';
+
+	return (str);
 }
 
 /**
@@ -90,7 +117,12 @@ int check_pint(char *line)
 			break;
 		i++;
 	}
-	return (i == 4 ? 3 : 0);
+	if ( i == 4 && (*(line + i) == ' ' ||
+		*(line + i) == '\n' ||
+		*(line + i) == '\0' ||
+		*(line + i) == '\r'))
+		return (3);
+	return (0);
 }
 
 /**
@@ -112,5 +144,10 @@ int check_pop(char *line)
 			break;
 		i++;
 	}
-	return (i == 3 ? 4 : 0);
+	if ( i == 3 && (*(line + i) == ' ' ||
+		*(line + i) == '\n' ||
+		*(line + i) == '\0' ||
+		*(line + i) == '\r'))
+		return (4);
+	return (0);
 }
