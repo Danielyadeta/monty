@@ -59,3 +59,26 @@ int op_pchar(stack_t **h, int lnum)
 
 	return (1);
 }
+
+/**
+* op_pstr - prints the string starting at the top of the stack
+* @h: pointer to head of stack
+*
+* Return: 1
+*/
+int op_pstr(stack_t **h)
+{
+	stack_t *current;
+
+	current = *h;
+	if (h == NULL || *h == NULL)
+		printf("\n");
+	while (current->n != '0' && current != NULL &&
+		(current->n > 32 && current->n < 127))
+	{
+		printf("%c", current->n);
+		current = current->next;
+	}
+	printf("\n");
+	return (1);
+}

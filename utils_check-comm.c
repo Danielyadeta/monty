@@ -15,11 +15,11 @@ int check_command(char *line, int lnum)
 		check_pint, check_pop, check_swap,
 		check_add, check_nop, check_sub, check_div,
 		check_mul, check_mod, check_comment, check_pchar,
-		check_empty};
+		check_empty, check_pstr};
 
 	i = 0;
 	command = 0;
-	while (command == 0 && i < 14)
+	while (command == 0 && i < 15)
 	{
 		command = chkrs[i](line);
 		i++;

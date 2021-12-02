@@ -104,6 +104,8 @@ int interpret_command(int command, char *line, stack_t **head, int lnum)
 		op_pchar(head, lnum);
 	else if (command == 14)
 		return (98);
+	else if (command == 15)
+		op_pstr(head);
 	return (0);
 }
 

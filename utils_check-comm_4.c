@@ -48,3 +48,30 @@ int check_empty(char *line)
 		return (14);
 	return (0);
 }
+
+/**
+* check_pstr - checks if the command is pstr
+* @line: the input buffer
+*
+* Return: 1 if found, otherwise 0
+*/
+int check_pstr(char *line)
+{
+	char *str_pstr;
+	int i;
+
+	i = 0;
+	str_pstr = "pstr";
+	while (i < 4)
+	{
+		if (*(line + i) != *(str_pstr + i))
+			break;
+		i++;
+	}
+	if (i == 4 && (*(line + i) == ' ' ||
+		*(line + i) == '\n' ||
+		*(line + i) == '\0' ||
+		*(line + i) == '\r'))
+		return (15);
+	return (0);
+}
