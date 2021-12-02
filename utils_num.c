@@ -62,13 +62,20 @@ int iton(char c)
 */
 int get_push_num(char *line, int lnum)
 {
-	int end, i, sum;
+	int end, i, sum, start;
 
+	start = 0;
 	end = 0;
 	i = 0;
-	while (*(line + 5 + i) != ' ' &&
-		*(line + 5 + i) != '\n' &&
-		*(line + 5 + i) != '\0')
+	while (*(line + 4 + i) == ' ')
+	{
+		start++;
+		i++;
+	}
+	i = 0;
+	while (*(line + 4 + start + i) != ' ' &&
+		*(line + 4 + start + i) != '\n' &&
+		*(line + 4 + start + i) != '\0')
 	{
 		end++;
 		i++;
@@ -79,11 +86,11 @@ int get_push_num(char *line, int lnum)
 	sum = 0;
 	while (end > 0)
 	{
-		if (*(line + 5 + i) < 48 || *(line + 5 + i) > 57)
+		if (*(line + 4 + start + i) < 48 || *(line + 4 + start + i) > 57)
 			printerr(1, lnum, NULL);
 		else
 		{
-			sum = sum + ((iton(*(line + 5 + i))) * (powrd(end - 1)));
+			sum = sum + ((iton(*(line + 4 + start + i))) * (powrd(end - 1)));
 		}
 		end--;
 		i++;

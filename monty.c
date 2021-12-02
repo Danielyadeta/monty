@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 	len = 0;
 	fp = fopen(argv[1], "r");
 	if (fp == NULL)
-		printerr(5, 0, NULL);
+		printerr(5, 0, argv[1]);
 	while (getline(&line, &len, fp) != -1)
 	{
 		start = 0;

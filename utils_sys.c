@@ -14,7 +14,8 @@ void printerr(int errnum, int lnum, char *str)
 	char *errtwo = ": can't pint, stack empty";
 	char *errthree = ": unknown instruction ";
 	char *errfour = "USAGE: monty file";
-	char *errfive = "Error: Can't open file <file>";
+	char *errfive = "Error: Can't open file ";
+	char *errsix = "Error: malloc failed";
 
 	if (errnum == 1)
 		dprintf(STDERR_FILENO, "L%d%s\n", lnum, errone);
@@ -25,7 +26,9 @@ void printerr(int errnum, int lnum, char *str)
 	else if (errnum == 4)
 		dprintf(STDERR_FILENO, "%s\n", errfour);
 	else if (errnum == 5)
-		dprintf(STDERR_FILENO, "%s\n", errfive);
+		dprintf(STDERR_FILENO, "%s%s\n", errfive, str);
+	else if (errnum == 6)
+		dprintf(STDERR_FILENO, "%s\n", errsix);
 	free(str);
 	exit(EXIT_FAILURE);
 }

@@ -40,14 +40,14 @@ int check_push(char *line)
 	int i;
 
 	i = 0;
-	str_push = "push ";
-	while (i < 5)
+	str_push = "push";
+	while (i < 4)
 	{
 		if (*(line + i) != *(str_push + i))
 			break;
 		i++;
 	}
-	return (i == 5 ? 1 : 0);
+	return (i == 4 ? 1 : 0);
 }
 
 /**

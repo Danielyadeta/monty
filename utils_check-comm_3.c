@@ -115,6 +115,8 @@ char *get_unknown_op(char *line)
 	int i;
 	char *str = malloc(sizeof(char) * 50);
 
+	if (str == NULL)
+		printerr(6, 0, NULL);
 	i = 0;
 	while (*(line + i) != ' ' &&
 		*(line + i) != '\n' && *(line + i) != '\0' &&
