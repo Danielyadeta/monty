@@ -67,6 +67,6 @@ int check_comment(char *line);
 void free_dlistint(stack_t *head);
 int interpret_command(int command, char *line, stack_t **head, int lnum);
 char *get_unknown_op(char *line);
-int get_push_num(char *line);
+int get_push_num(char *line, int lnum);
 
 #endif /* MONTY_H */

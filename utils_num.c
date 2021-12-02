@@ -56,10 +56,11 @@ int iton(char c)
 /**
 * get_push_num - gets the number to push
 * @line: the input buffer
+* @lnum: line number
 *
 * Return: the number
 */
-int get_push_num(char *line)
+int get_push_num(char *line, int lnum)
 {
 	int end, i, sum;
 

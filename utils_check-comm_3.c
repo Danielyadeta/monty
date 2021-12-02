@@ -77,7 +77,7 @@ int check_comment(char *line)
 int interpret_command(int command, char *line, stack_t **head, int lnum)
 {
 	if (command == 1)
-		add_dnodeint(head, get_push_num(line));
+		add_dnodeint(head, get_push_num(line, lnum));
 	else if (command == 2)
 		print_dlistint(*head);
 	else if (command == 3)
