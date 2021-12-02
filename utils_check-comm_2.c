@@ -46,7 +46,7 @@ int check_add(char *line)
 			break;
 		i++;
 	}
-	if ( i == 4 && (*(line + i) == ' ' ||
+	if ( i == 3 && (*(line + i) == ' ' ||
 		*(line + i) == '\n' ||
 		*(line + i) == '\0' ||
 		*(line + i) == '\r'))
