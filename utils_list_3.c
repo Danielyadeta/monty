@@ -53,7 +53,7 @@ int op_pchar(stack_t **h, int lnum)
 {
 	if (h == NULL || *h == NULL)
 		printerr(16, lnum, NULL);
-	if ((*h)->n < 0 || (*h)->n > 127)
+	if ((*h)->n < 32 || (*h)->n > 126)
 		printerr(15, lnum, NULL);
 	printf("%c\n", (*h)->n);
 
