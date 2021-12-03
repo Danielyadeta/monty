@@ -37,41 +37,50 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-size_t op_pall(const stack_t *h);
-stack_t *op_push(stack_t **head, const int n);
-int powrd(int n);
-void printerr(int errno, int lnum, char *str);
-int iton(char c);
+/* opcode checkers */
 int check_command(char *line, int lnum);
 int check_push(char *line);
 int check_pall(char *line);
-size_t op_pint(const stack_t *h, int lnum);
 int check_pint(char *line);
 int check_pop(char *line);
-int op_pop(stack_t **head, int lnum);
 int check_swap(char *line);
-size_t len_stack(const stack_t *h);
-int op_swap(stack_t *h, int lnum);
-int op_add(stack_t **h, int lnum);
-int check_add(char *line);
-int check_nop(char *line);
-int op_sub(stack_t **h, int lnum);
-int check_sub(char *line);
-int op_div(stack_t **h, int lnum);
-int check_div(char *line);
-int op_mul(stack_t **h, int lnum);
-int check_mul(char *line);
-int op_mod(stack_t **h, int lnum);
-int check_mod(char *line);
-int check_comment(char *line);
-void free_stack(stack_t *head);
-int interpret_command(int command, char *line, stack_t **head, int lnum);
-char *get_unknown_op(char *line);
-int get_push_num(char *line, int lnum);
-int op_pchar(stack_t **h, int lnum);
 int check_pchar(char *line);
 int check_empty(char *line);
-int op_pstr(stack_t **h);
 int check_pstr(char *line);
+int check_add(char *line);
+int check_nop(char *line);
+int check_sub(char *line);
+int check_div(char *line);
+int check_mul(char *line);
+int check_mod(char *line);
+int check_comment(char *line);
+
+/* opcode executioners */
+size_t op_pall(const stack_t *h);
+stack_t *op_push(stack_t **head, const int n);
+int op_swap(stack_t *h, int lnum);
+int op_add(stack_t **h, int lnum);
+int op_sub(stack_t **h, int lnum);
+int op_pop(stack_t **head, int lnum);
+size_t op_pint(const stack_t *h, int lnum);
+int op_mul(stack_t **h, int lnum);
+int op_div(stack_t **h, int lnum);
+int op_mod(stack_t **h, int lnum);
+int op_pchar(stack_t **h, int lnum);
+int op_pstr(stack_t **h);
+
+/* number handlers */
+int powrd(int n);
+int iton(char c);
+int get_push_num(char *line, int lnum);
+
+/* stack handlers */
+size_t len_stack(const stack_t *h);
+void free_stack(stack_t *head);
+
+/* other handlers */
+char *get_unknown_op(char *line);
+void printerr(int errno, int lnum, char *str);
+int interpret_command(int command, char *line, stack_t **head, int lnum);
 
 #endif /* MONTY_H */
