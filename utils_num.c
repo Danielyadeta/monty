@@ -86,14 +86,17 @@ int get_push_num(char *line, int lnum)
 	sum = 0;
 	while (end > 0)
 	{
+		if (i == 0 && *(line + 4 + start) == '-')
+		{
+			i++;
+			end--;
+		}
 		if (*(line + 4 + start + i) < 48 || *(line + 4 + start + i) > 57)
 			printerr(1, lnum, NULL);
 		else
-		{
 			sum = sum + ((iton(*(line + 4 + start + i))) * (powrd(end - 1)));
-		}
 		end--;
 		i++;
 	}
-	return (sum);
+	return ((*(line + 4 + start) == '-') ? (-1 * sum) : (sum));
 }
