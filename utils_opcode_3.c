@@ -54,7 +54,10 @@ int op_pstr(stack_t **h)
 
 	current = *h;
 	if (h == NULL || *h == NULL)
+	{
 		printf("\n");
+		exit(EXIT_SUCCESS);
+	}
 	while (current->n != '0' && current != NULL &&
 		(current->n > 31 && current->n < 127))
 	{
