@@ -63,3 +63,73 @@ void printerr(int errnum, int lnum, char *str)
 		free(str);
 	exit(EXIT_FAILURE);
 }
+
+/**
+* interpret_command - interprets the op code
+* @command: the opcode
+* @line: the input buffer
+* @head: head of stack
+* @lnum: the line number
+*
+* Return: 0 on failiure
+*/
+int interpret_command(int command, char *line, stack_t **head, int lnum)
+{
+	if (command == 1)
+		op_push(head, get_push_num(line, lnum));
+	else if (command == 2)
+		op_pall(*head);
+	else if (command == 3)
+		op_pint(*head, lnum);
+	else if (command == 4)
+		op_pop(head, lnum);
+	else if (command == 5)
+		op_swap(*head, lnum);
+	else if (command == 6)
+		op_add(head, lnum);
+	else if (command == 7)
+		return (98);
+	else if (command == 8)
+		op_sub(head, lnum);
+	else if (command == 9)
+		op_div(head, lnum);
+	else if (command == 10)
+		op_mul(head, lnum);
+	else if (command == 11)
+		op_mod(head, lnum);
+	else if (command == 12)
+		return (98);
+	else if (command == 13)
+		op_pchar(head, lnum);
+	else if (command == 14)
+		return (98);
+	else if (command == 15)
+		op_pstr(head);
+	return (0);
+}
+
+/**
+* get_unknown_op - gets what the unknown op is
+* @line: the input buffer
+*
+* Return: the unknown op
+*/
+char *get_unknown_op(char *line)
+{
+	int i;
+	char *str = malloc(sizeof(char) * 50);
+
+	if (str == NULL)
+		printerr(6, 0, NULL);
+	i = 0;
+	while (*(line + i) != ' ' &&
+		*(line + i) != '\n' && *(line + i) != '\0' &&
+		*(line + i) != '\r')
+	{
+		*(str + i) = *(line + i);
+		i++;
+	}
+	*(str + i) = '\0';
+
+	return (str);
+}
