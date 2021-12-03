@@ -59,6 +59,7 @@ void printerr(int errnum, int lnum, char *str)
 		dprintf(STDERR_FILENO, "L%d%s\n", lnum, errfifteen);
 	else if (errnum == 16)
 		dprintf(STDERR_FILENO, "L%d%s\n", lnum, errsixteen);
-	free(str);
+	if (str)
+		free(str);
 	exit(EXIT_FAILURE);
 }
