@@ -85,22 +85,3 @@ int op_pop(stack_t **head, int lnum)
 	free(current);
 	return (pop_val);
 }
-
-/**
- * len_stack - returns the number of elements in a linked dlistint_t list
- * @h: pointer to a dlistint_t list
- *
- * Return: the number of nodes
- */
-size_t len_stack(const stack_t *h)
-{
-	size_t count;
-
-	count = 0;
-	while (h != NULL)
-	{
-		h = h->next;
-		count++;
-	}
-	return (count);
-}
