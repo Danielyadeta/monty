@@ -13,7 +13,7 @@ int op_mod(stack_t **h, int lnum)
 {
 	int a;
 
-	if (dlistint_len(*h) < 2)
+	if (len_stack(*h) < 2)
 		printerr(14, lnum, NULL);
 	a = op_pop(h, lnum);
 	if (a == 0)
@@ -25,12 +25,12 @@ int op_mod(stack_t **h, int lnum)
 }
 
 /**
- * free_dlistint - frees a dlistint_t list
+ * free_stack - frees a dlistint_t list
  * @head: pointer to the head of the list
  *
  * Return: Always Void
  */
-void free_dlistint(stack_t *head)
+void free_stack(stack_t *head)
 {
 	stack_t *current;
 

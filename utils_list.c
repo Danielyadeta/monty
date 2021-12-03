@@ -1,13 +1,13 @@
 #include "monty.h"
 
 /**
- * add_dnodeint - add a new node at the beginning of a stack list
+ * op_push - add a new node at the beginning of a stack list
  * @head: double pointer to head of linked list
  * @n: value to the new node
  *
  * Return: pointer to the new node, otherwise NULL on failure
  */
-stack_t *add_dnodeint(stack_t **head, const int n)
+stack_t *op_push(stack_t **head, const int n)
 {
 	stack_t *new;
 
@@ -25,12 +25,12 @@ stack_t *add_dnodeint(stack_t **head, const int n)
 }
 
 /**
- * print_dlistint - prints all the elements of a dlistint_t list
+ * op_pall - prints all the elements of a dlistint_t list
  * @h: pointer to a dlistint_t list
  *
  * Return: the number of nodes
  */
-size_t print_dlistint(const stack_t *h)
+size_t op_pall(const stack_t *h)
 {
 	size_t count;
 
@@ -47,13 +47,13 @@ size_t print_dlistint(const stack_t *h)
 }
 
 /**
-* print_top - prints the int at top of stack
+* op_pint - prints the int at top of stack
 * @h: head of the stack
 * @lnum: the line number
 *
 * Return: 1
 */
-size_t print_top(const stack_t *h, int lnum)
+size_t op_pint(const stack_t *h, int lnum)
 {
 	if (h == NULL)
 		printerr(2, lnum, NULL);
@@ -87,12 +87,12 @@ int op_pop(stack_t **head, int lnum)
 }
 
 /**
- * dlistint_len - returns the number of elements in a linked dlistint_t list
+ * len_stack - returns the number of elements in a linked dlistint_t list
  * @h: pointer to a dlistint_t list
  *
  * Return: the number of nodes
  */
-size_t dlistint_len(const stack_t *h)
+size_t len_stack(const stack_t *h)
 {
 	size_t count;
 
