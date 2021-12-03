@@ -25,24 +25,6 @@ int op_mod(stack_t **h, int lnum)
 }
 
 /**
- * free_stack - frees a dlistint_t list
- * @head: pointer to the head of the list
- *
- * Return: Always Void
- */
-void free_stack(stack_t *head)
-{
-	stack_t *current;
-
-	while (head != NULL)
-	{
-		current = head->next;
-		free(head);
-		head = current;
-	}
-}
-
-/**
 * op_pchar - prints the char at the top of the stack
 * @h: pointer to head of stack
 * @lnum: line number
