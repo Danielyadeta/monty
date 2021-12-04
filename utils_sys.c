@@ -75,8 +75,12 @@ void printerr(int errnum, int lnum, char *str)
 */
 int interpret_command(int command, char *line, stack_t **head, int lnum)
 {
+	extern int stk_que;
+
 	if (command == 1)
-		op_push(head, get_push_num(line, lnum));
+		stk_que == 0 ?
+		op_push(head, get_push_num(line, lnum)) :
+		op_push_queue(head, get_push_num(line, lnum));
 	else if (command == 2)
 		op_pall(*head);
 	else if (command == 3)
@@ -105,6 +109,10 @@ int interpret_command(int command, char *line, stack_t **head, int lnum)
 		return (98);
 	else if (command == 15)
 		op_pstr(head);
+	else  if (command == 16)
+		stk_que = 1;
+	else if (command == 17)
+		stk_que = 0;
 	return (0);
 }
 

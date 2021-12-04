@@ -1,5 +1,6 @@
 #include "monty.h"
 
+int stk_que = 0;
 /**
 * main - starting point for monty read
 * @argc: argument count

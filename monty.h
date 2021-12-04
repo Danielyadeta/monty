@@ -54,10 +54,13 @@ int check_div(char *line);
 int check_mul(char *line);
 int check_mod(char *line);
 int check_comment(char *line);
+int check_queue(char *line);
+int check_stack(char *line);
 
 /* opcode executioners */
 size_t op_pall(const stack_t *h);
 stack_t *op_push(stack_t **head, const int n);
+stack_t *op_push_queue(stack_t **head, const int n);
 int op_swap(stack_t *h, int lnum);
 int op_add(stack_t **h, int lnum);
 int op_sub(stack_t **h, int lnum);

@@ -67,3 +67,33 @@ int op_pstr(stack_t **h)
 	printf("\n");
 	return (1);
 }
+
+/**
+ * op_push_queue - add a new node at the end of a stack list
+ * @head: double pointer to the head of a list
+ * @n: value to add to new node
+ *
+ * Return: pointer to the new node, or NULL on failure
+ */
+stack_t *op_push_queue(stack_t **head, const int n)
+{
+	stack_t *temp, *new;
+
+	new = malloc(sizeof(stack_t));
+	if (head == NULL || new == NULL)
+		return (NULL);
+	new->n = n;
+	new->next = NULL;
+	if (*head == NULL)
+	{
+		new->prev = NULL;
+		*head = new;
+		return (new);
+	}
+	temp = *head;
+	while (temp->next != NULL)
+		temp = temp->next;
+	temp->next = new;
+	new->prev = temp;
+	return (new);
+}

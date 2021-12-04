@@ -75,3 +75,57 @@ int check_pstr(char *line)
 		return (15);
 	return (0);
 }
+
+/**
+* check_queue - checks if the command is queue
+* @line: the input buffer
+*
+* Return: 1 if found, otherwise 0
+*/
+int check_queue(char *line)
+{
+	char *str_queue;
+	int i;
+
+	i = 0;
+	str_queue = "queue";
+	while (i < 5)
+	{
+		if (*(line + i) != *(str_queue + i))
+			break;
+		i++;
+	}
+	if (i == 5 && (*(line + i) == ' ' ||
+		*(line + i) == '\n' ||
+		*(line + i) == '\0' ||
+		*(line + i) == '\r'))
+		return (16);
+	return (0);
+}
+
+/**
+* check_stack - checks if the command is stack
+* @line: the input buffer
+*
+* Return: 1 if found, otherwise 0
+*/
+int check_stack(char *line)
+{
+	char *str_stack;
+	int i;
+
+	i = 0;
+	str_stack = "stack";
+	while (i < 5)
+	{
+		if (*(line + i) != *(str_stack + i))
+			break;
+		i++;
+	}
+	if (i == 5 && (*(line + i) == ' ' ||
+		*(line + i) == '\n' ||
+		*(line + i) == '\0' ||
+		*(line + i) == '\r'))
+		return (17);
+	return (0);
+}
