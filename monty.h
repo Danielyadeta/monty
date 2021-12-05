@@ -57,6 +57,7 @@ int check_comment(char *line);
 int check_queue(char *line);
 int check_stack(char *line);
 int check_rotl(char *line);
+int check_rotr(char *line);
 
 /* opcode executioners */
 size_t op_pall(const stack_t *h);
@@ -73,6 +74,7 @@ int op_mod(stack_t **h, int lnum);
 int op_pchar(stack_t **h, int lnum);
 int op_pstr(stack_t **h);
 int op_rotl(stack_t **h);
+int op_rotr(stack_t **h);
 
 /* number handlers */
 int powrd(int n);
