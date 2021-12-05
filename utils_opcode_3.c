@@ -109,9 +109,7 @@ int op_rotl(stack_t **head)
 	stack_t *temp;
 	int num;
 
-	if (head == NULL || *head == NULL)
-		printerr(1, 0, NULL);
-	if (len_stack(*head) < 2)
+	if (head == NULL || *head == NULL || len_stack(*head) < 2)
 		return (0);
 	temp = *head;
 	num = temp->n;
