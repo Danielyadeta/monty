@@ -12,7 +12,10 @@ int op_rotr(stack_t **head)
 	int num;
 
 	if (head == NULL || *head == NULL)
-		printerr(1, 0, NULL);
+	{
+		printf("0\n");
+		return (0);
+	}
 	if (len_stack(*head) < 2)
 		return (0);
 	temp = *head;
