@@ -113,6 +113,8 @@ int interpret_command(int command, char *line, stack_t **head, int lnum)
 		stk_que = 1;
 	else if (command == 17)
 		stk_que = 0;
+	else if (command == 18)
+		op_rotl(head);
 	return (0);
 }
 
